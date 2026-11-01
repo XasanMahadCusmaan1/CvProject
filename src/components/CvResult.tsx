@@ -9,9 +9,10 @@ type cvResultsType = {
 function CvResult({ generalInfo, onEdit }: cvResultsType) {
   return (
     <section>
-      <span>Person Name : {generalInfo.name}</span>
-      <span>Person Email : {generalInfo.email}</span>
-      <span>Person Tel : {generalInfo.phone}</span>
+      <span>Name : {generalInfo.name}</span><br />
+      <span>Email : {generalInfo.email}</span><br />
+      <span>Tel : {generalInfo.phone}</span>
+      <hr />
       <Button type="button" onClickHandler={onEdit}>
         Edit
       </Button>

@@ -1,16 +1,30 @@
 import Button from "./Button";
 import "../styles/generalForm.css";
 
-import type { GeneralInfo } from "./types/cv";
+import type { GeneralInfo } from "../types/cv";
 
 type GeneralFormType = {
   generalInfo: GeneralInfo;
-  onClickHandler: () => void;
-}
+  inputChangeHandler: (
+    inputValue: string,
+    nameValue: keyof GeneralInfo,
+  ) => void;
+  onSubmitHandler: () => void;
+};
 
-function GeneralInfoForm({generalInfo, onClickHandler}: GeneralFormType) {
+function GeneralInfoForm({
+  generalInfo,
+  inputChangeHandler,
+  onSubmitHandler,
+}: GeneralFormType) {
   return (
-    <form className="general_form">
+    <form
+      className="general_form"
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSubmitHandler();
+      }}
+    >
       <fieldset>
         <legend>
           <h2 className="general_form--title">About</h2>
@@ -24,6 +38,7 @@ function GeneralInfoForm({generalInfo, onClickHandler}: GeneralFormType) {
             autoComplete="given-name"
             required
             value={generalInfo.name}
+            onChange={(e) => inputChangeHandler(e.target.value, "name")}
           />
         </div>
         <div className="general_form--email">
@@ -35,6 +50,7 @@ function GeneralInfoForm({generalInfo, onClickHandler}: GeneralFormType) {
             autoComplete="email"
             required
             value={generalInfo.email}
+            onChange={(e) => inputChangeHandler(e.target.value, "email")}
           />
         </div>
         <div className="general_form--phone">
@@ -46,10 +62,11 @@ function GeneralInfoForm({generalInfo, onClickHandler}: GeneralFormType) {
             autoComplete="tel"
             required
             value={generalInfo.phone}
+            onChange={(e) => inputChangeHandler(e.target.value, "phone")}
           />
         </div>
 
-        <Button type="submit" onClickHandler={onClickHandler}>
+        <Button type="submit">
           Submit
         </Button>
       </fieldset>

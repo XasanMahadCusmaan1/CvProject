@@ -4,7 +4,7 @@ import "../styles/button.css";
 type ButtonProp = {
   children: ReactNode;
   type?: "button" | "submit" | "reset";
-  onClickHandler: () => void;
+  onClickHandler?: () => void;
 };
 
 function Button({ children, type = "button", onClickHandler }: ButtonProp) {

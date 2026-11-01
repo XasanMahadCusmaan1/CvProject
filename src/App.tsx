@@ -15,10 +15,18 @@ function App() {
 
   const [isEditing, setIsEditing] = useState(true);
 
-  //   function onSubmit() {}
+  function inputChange(
+    inputValue: string,
+    fieldName: keyof GeneralInfo,
+  ) {
+    setGeneralInfo({ ...generalInfo, [fieldName]: inputValue });
+  }
+  function onSubmitHandler() {
+    setIsEditing(false)
+  }
 
   function onEdit() {
-    setIsEditing(true)
+    setIsEditing(true);
   }
 
   return (
@@ -36,13 +44,19 @@ function App() {
       <main>
         <section className="form-section">
           <div className="general-information">
-            <GeneralInfoForm onClickHandler={onEdit} inputValue={generalInfo} />
+            {isEditing && (
+              <GeneralInfoForm
+                generalInfo={generalInfo}
+                inputChangeHandler={inputChange}
+                onSubmitHandler={onSubmitHandler}
+              />
+            )}
           </div>
           <div className="educational-experience"></div>
           <div className="practical-experience"></div>
         </section>
         <section className="cv-section">
-          <CvResult generalInfo={generalInfo} onEdit={onEdit} />
+          {!isEditing && <CvResult generalInfo={generalInfo} onEdit={onEdit} />}
         </section>
       </main>
     </>
