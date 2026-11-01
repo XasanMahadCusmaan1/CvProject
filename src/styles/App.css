@@ -1,0 +1,25 @@
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+.header-container h1 {
+  margin-bottom: 1rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--color-black);
+}
+
+.header-description {
+  max-width: 700px;
+  margin-bottom: 0;
+  font-family: var(--font-amaranth);
+  line-height: 1.5;
+}
+
+.form-section,
+.cv-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem 2rem;
+}
