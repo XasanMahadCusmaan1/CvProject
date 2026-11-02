@@ -1,0 +1,49 @@
+.resume {
+  background: var(--color-white);
+  color: #252525;
+  border: 1px solid #d5d5d5;
+  overflow-wrap: anywhere;
+}
+.resume__header {
+  padding: 2.5rem 2rem 2rem;
+  background: #363636;
+  color: var(--color-white);
+}
+.resume__header h1 {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: .015em;
+  text-transform: uppercase;
+}
+.resume__header p { margin-top: .6rem; font-size: .95rem; color: #e1e1e1; }
+.resume__columns {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 2fr);
+  min-height: 620px;
+}
+.resume__contact { padding: 2rem 1.5rem; background: #ededeb; }
+.resume__contact h2 { margin-bottom: 1.4rem; }
+.resume__contact dl > div + div { margin-top: 1.4rem; }
+.resume__contact dt { margin-bottom: .3rem; font-size: .75rem; font-weight: 600; }
+.resume__contact dd { margin: 0; font-size: .8rem; line-height: 1.6; }
+.resume__contact a { color: inherit; text-decoration-color: #a3a3a3; text-underline-offset: 3px; }
+.resume__main { min-width: 0; padding: 2rem; }
+.resume h2 {
+  padding-bottom: .5rem;
+  border-bottom: 1px solid #aaa;
+  font-size: .9rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.resume__section + .resume__section { margin-top: 2.75rem; }
+.resume__date { margin: .9rem 0; color: #616161; text-align: right; font-size: .75rem; font-variant-numeric: tabular-nums; }
+.resume__section h3 { font-size: .95rem; line-height: 1.4; font-weight: 600; }
+.resume__organization { margin-top: .25rem; font-size: .85rem; }
+.resume__responsibilities { margin-top: 1rem; white-space: pre-wrap; font-size: .85rem; line-height: 1.75; }
+.cv-result__actions { margin-top: 1.25rem; text-align: right; }
+@media (max-width: 600px) {
+  .resume__columns { grid-template-columns: 1fr; min-height: 0; }
+  .resume__header, .resume__main, .resume__contact { padding: 1.5rem; }
+}

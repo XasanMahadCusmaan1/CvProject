@@ -1,25 +1,39 @@
 .header-container {
-  max-width: 1200px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 1rem 1.5rem;
+  padding: 3.5rem 1.5rem 2rem;
 }
-
 .header-container h1 {
-  margin-bottom: 1rem;
-  font-size: clamp(2rem, 5vw, 3rem);
-  color: var(--color-black);
+  margin-bottom: .65rem;
+  font-family: var(--font-inter);
+  font-size: clamp(1.65rem, 4vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -.04em;
+  line-height: 1.2;
+  color: #202124;
 }
-
 .header-description {
-  max-width: 700px;
-  margin-bottom: 0;
-  font-family: var(--font-amaranth);
-  line-height: 1.5;
+  max-width: 560px;
+  color: #62656b;
+  font-size: .92rem;
+  line-height: 1.65;
 }
-
-.form-section,
-.cv-section {
-  max-width: 1200px;
+.cv-builder {
+  max-width: 960px;
   margin: 0 auto;
-  padding: 0 1.5rem 2rem;
+  padding: 0 1.5rem 4rem;
+}
+.form-section {
+  padding: .25rem 2rem;
+  border: 1px solid #dedfe2;
+  background: var(--color-white);
+}
+.form-section > div { min-width: 0; }
+.form-section > div + div { border-top: 1px solid #e6e7e9; }
+.cv-builder--editing > .button { display: block; margin: 1.25rem 0 0 auto; }
+.cv-builder--preview .form-section,
+.cv-builder--editing .cv-section { display: none; }
+@media (max-width: 600px) {
+  .header-container { padding-top: 2rem; }
+  .form-section { padding: 0 1.25rem; }
 }

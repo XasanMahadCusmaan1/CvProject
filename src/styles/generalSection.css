@@ -1,0 +1,66 @@
+.general_form {
+  min-width: 0;
+  padding: 1.75rem 0 2rem;
+  border: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem 1.5rem;
+}
+.general_form legend {
+  float: left;
+  width: 100%;
+  grid-column: 1 / -1;
+  margin-bottom: .25rem;
+  padding: 0;
+  color: #292b30;
+  font-family: var(--font-inter);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -.015em;
+}
+.general_form > div { min-width: 0; }
+.general_form label {
+  display: block;
+  margin-bottom: .45rem;
+  color: #44474e;
+  font-size: .8rem;
+  font-weight: 500;
+}
+.general_form input,
+.general_form textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: .65rem .75rem;
+  border: 1px solid #c9cbd0;
+  border-radius: 3px;
+  background: #fff;
+  color: #202124;
+  font: inherit;
+  font-size: .9rem;
+  line-height: 1.5;
+}
+.general_form input:hover,
+.general_form textarea:hover { border-color: #8a8e96; }
+.general_form input:focus-visible,
+.general_form textarea:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+.general_form textarea { min-height: 140px; resize: vertical; }
+.general_form textarea::placeholder { color: #777b83; }
+.general_form--res,
+.general_form--period { grid-column: 1 / -1; }
+.general_form--period {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: .75rem;
+}
+.general_form--period label { margin: 0; }
+@media (max-width: 600px) {
+  .general_form { grid-template-columns: 1fr; padding: 1.5rem 0; }
+  .general_form--period { grid-template-columns: 1fr; }
+}
+
+

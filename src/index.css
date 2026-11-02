@@ -21,6 +21,9 @@ body {
   margin: 0;
   min-width: 320px;
   font-family: var(--font-inter);
+  color: #292b30;
+  background: #f6f6f5;
+  line-height: 1.5;
 }
 
 h1,
