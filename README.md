@@ -1,75 +1,46 @@
-# React + TypeScript + Vite
+# CV / Resume Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React and TypeScript learning project for entering personal details and presenting a CV preview.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- General information: name, email, and phone.
+- Education: school, study title, and date.
+- Experience: company, position, responsibilities, and start/end dates.
+- Submit to switch from editing to a CV preview.
+- Return to editing while retaining current in-memory values.
 
-## React Compiler
+## Built with
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React, TypeScript, Vite, and CSS, with ESLint for source checks.
 
-## Expanding the ESLint configuration
+## Run locally
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Open Vite's printed local URL.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Command | Purpose |
+| --- | --- |
+| `npm run build` | Type-check and build to `dist/` |
+| `npm run preview` | Serve the production build locally |
+| `npm run lint` | Run ESLint |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project structure
 
-```
+- `src/App.tsx`: form state, change handlers, and edit/preview mode.
+- `src/components/`: general, education, experience, preview, and button components.
+- `src/types/cv.ts`: shared TypeScript data types.
+- `src/styles/`: component styles.
+- `PROJECT_CONTEXT.md` and `ERROR_LOG.md`: learning and debugging documentation.
+
+## Learning focus
+
+Controlled inputs, lifting state, callback props, immutable object updates, conditional rendering, and TypeScript's keyof for field-specific updates.
+
+## Current limitations
+
+The inspected state represents one education and one experience entry. Values are held in memory and are not persisted after refresh. No PDF export or backend is implemented in App. Source was reviewed for this documentation update; build and browser behavior were not tested here.
